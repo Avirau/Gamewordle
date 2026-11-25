@@ -1,0 +1,90 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #121213;
+  color: #ffffff;
+}
+
+.app {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: center;
+}
+
+h1 {
+  margin: 8px 0;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #3a3a3c;
+  padding-bottom: 8px;
+}
+
+.message { height: 24px; color: #f5c518; margin: 8px 0; }
+
+/* Board */
+.board { display: grid; gap: 6px; justify-content: center; margin-bottom: 20px; }
+.row { display: grid; grid-template-columns: repeat(5, 58px); gap: 6px; }
+
+.tile {
+  width: 58px;
+  height: 58px;
+  border: 2px solid #3a3a3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.tile.filled { border-color: #565758; }
+
+/* Tile colors based on status */
+.tile.correct { background: #538d4e; border-color: #538d4e; }
+.tile.present { background: #b59f3b; border-color: #b59f3b; }
+.tile.absent  { background: #3a3a3c; border-color: #3a3a3c; }
+
+/* Keyboard */
+.keyboard { display: grid; gap: 6px; }
+.keyboard-row { display: flex; justify-content: center; gap: 5px; }
+
+.key {
+  min-width: 36px;
+  height: 52px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 4px;
+  background: #818384;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.key.wide { min-width: 62px; font-size: 0.8rem; }
+.key:hover { opacity: 0.85; }
+
+/* Key colors synced with tiles */
+.key.correct { background: #538d4e; }
+.key.present { background: #b59f3b; }
+.key.absent  { background: #3a3a3c; }
+
+/* Modal */
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal {
+  background: #1f1f20;
+  border: 1px solid #3a3a3c;
+  border-radius: 10px;
+  padding: 28px 36px;
+  max-width: 340px;
+}
+.modal .answer { font-size: 2rem; font-weight: bold; letter-spacing: 4px; color: #538d4e; }
+.play-again {
+  margin-top: 10px; padding: 10px 22px; border: none;
+  border-radius: 6px; background: #538d4e; color: #fff;
+  font-size: 1rem; cursor: pointer;
+}
